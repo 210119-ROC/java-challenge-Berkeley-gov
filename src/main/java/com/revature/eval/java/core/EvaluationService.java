@@ -75,7 +75,7 @@ public class EvaluationService {
 	 * <p>
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
-	 */s
+	 */
 	public String printMegaBytesAndKiloBytes(int kiloBytes) {
 		// Byte: 8 bits
 		// Kilobyte: 1000 bytes
