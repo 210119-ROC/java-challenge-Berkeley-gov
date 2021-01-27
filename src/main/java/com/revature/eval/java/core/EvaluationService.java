@@ -7,92 +7,111 @@ public class EvaluationService {
 
 	/**
 	 * 1.A Speed Converter - Convert to MilesPerHour
-	 * 
+	 * <p>
 	 * Write a method called toMilesPerHour that has 1 parameter of type double with
 	 * the name kilometersPerHour. This method needs to return the rounded value of
 	 * the calculation of type long.
-	 * 
+	 * <p>
 	 * If the parameter kilometersPerHour is less than 0, the method toMilesPerHour
 	 * needs to return -1 to indicate an invalid value.
-	 * 
+	 * <p>
 	 * Otherwise if it is positive, calculate the value of miles per hour, round it
 	 * and return it. For conversion and rounding use Math.round().
 	 */
 	static class SpeedConverter {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return 0;
+			// Formula for kilometers to miles conversion: mph = km/h ÷ 1.609344
+			long milesPerHour = 0L;
+
+			if (kilometersPerHour < 0) {
+				return -1;
+			} else {
+				return milesPerHour = (long) Math.round(kilometersPerHour / 1.609344);
+			}
 		}
 
 		/**
 		 * 1.B Speed Converter - Print Conversion
-		 * 
+		 * <p>
 		 * Write another method called printConversion with 1 parameter of type double
 		 * with the name kilometersPerHour. This method needs to return a String and
 		 * needs to calculate milesPerHour from the kilometersPerHour parameter.
-		 * 
+		 * <p>
 		 * The String should print in the format: "XX km/h = YY mi/h"
-		 * 
+		 * <p>
 		 * XX represents the original value kilometersPerHour. YY represents the rounded
 		 * milesPerHour from the kilometersPerHour parameter.
-		 * 
+		 * <p>
 		 * If the parameter kilometersPerHour is < 0, then print the text "Invalid
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return null;
+
+			if (kilometersPerHour < 0) {
+				return "Invalid Value";
+			} else {
+				return kilometersPerHour + " km/h = " + toMilesPerHour(kilometersPerHour) + " mi/h";
+			}
 		}
 	}
 
 	/**
 	 * 2. MegaBytes and KiloBytes
-	 * 
+	 * <p>
 	 * Write a method called printMegaBytesAndKiloBytes that has 1 parameter of type
 	 * int with the name kiloBytes.
-	 * 
+	 * <p>
 	 * The method should return a String and it needs to calculate the megabytes and
 	 * remaining kilobytes from the kilobytes parameter.
-	 * 
+	 * <p>
 	 * Then it needs to print a message in the format "XX KB = YY MB and ZZ KB".
-	 * 
+	 * <p>
 	 * XX represents the original value kiloBytes. YY represents the calculated
 	 * megabytes. ZZ represents the calculated remaining kilobytes.
-	 * 
+	 * <p>
 	 * For examples, when the parameter kiloBytes is 2500 it needs to print "2500 KB
 	 * = 2 MB and 452 KB"
-	 * 
+	 * <p>
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
-	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	 */s
+	public String printMegaBytesAndKiloBytes(int kiloBytes) {
+		// Byte: 8 bits
+		// Kilobyte: 1000 bytes
+		// Megabyte: 1,000,000 bytes = 8,000,000 bits
+		if(kiloBytes < 0) {
+			return "Invalid Value";
+		} else {
+			int kiloByteLeftOver = kiloBytes % 1000;
+			int megaBytes = kiloBytes / 1000;
+
+			return "" + kiloBytes + " KB = " + megaBytes + " MB and " + kiloByteLeftOver + " KB";
+		}
 	}
 
 	/**
 	 * 3. Barking Dog
-	 * 
+	 * <p>
 	 * We have a dog that loves to bark. We need to wake up if the dog is barking at
 	 * night!
-	 * 
+	 * <p>
 	 * Write a method shouldWakeUp that has 2 parameters.
-	 * 
+	 * <p>
 	 * 1st parameter should be of type boolean and be named "barking". It represents
 	 * if our dog is currently barking. 2nd parameter represents the hour of the day
 	 * and is of type int with the name hourOfDay and has a valid range of 0-23.
-	 * 
+	 * <p>
 	 * We have to wake up if the dog is barking before 8 or after 22 hours, so in
 	 * that case return true.
-	 * 
+	 * <p>
 	 * In all other cases return false.
-	 * 
+	 * <p>
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		// Truncated execution flow syntax
+		return isBarking && hourOfDay < 8 || hourOfDay > 22;
 	}
 
 	/**
@@ -220,8 +239,13 @@ public class EvaluationService {
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String stringReversed = "";
+
+		for(int i = string.length() - 1; i > 0; i--) {
+			stringReversed += string.charAt(i);
+		}
+
+		return stringReversed;
 	}
 
 	/**
